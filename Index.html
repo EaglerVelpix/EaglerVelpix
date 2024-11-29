@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VelpixArchive Launcher</title>
+  <style>
+    /* Global styles */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      height: 100vh;
+      background-image: url('background.jpg'); /* background.jpg should be in the same folder */
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      /* Apply a dark semi-transparent overlay to the entire page */
+      background-color: rgba(0, 0, 0, 0.5); /* Dark overlay with transparency */
+    }
+
+    .launcher-container {
+      width: 400px;
+      background-color: rgba(45, 45, 45, 0.8); /* Dark semi-transparent background */
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+      text-align: center;
+    }
+
+    .launcher-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .launcher-header h1 {
+      margin: 20px 0;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .logo {
+      width: 120px;
+      margin-bottom: 10px;
+    }
+
+    .version-selector {
+      margin-top: 20px;
+    }
+
+    .version-selector label {
+      font-size: 16px;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      background-color: #3c3c3c;
+      color: white;
+      border: 1px solid #555;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .play-button {
+      width: 100%;
+      padding: 10px;
+      margin: 20px 0;
+      background-color: #6f42c1; /* Purple background color */
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .play-button:hover {
+      background-color: #5e35b1; /* Darker purple when hovered */
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #888;
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background audio -->
+  <audio autoplay loop>
+    <source src="background.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="launcher-container">
+    <div class="launcher-header">
+      <!-- Change the logo image source to 'minecraftlogo.jpg' -->
+      <img class="logo" src="minecraftlogo.jpg" alt="Minecraft Logo">
+      <!-- Updated the header to "VelpixArchive Launcher" -->
+      <h1>VelpixArchive Launcher</h1>
+    </div>
+
+    <div class="version-selector">
+      <label for="version">Version:</label>
+      <select id="version">
+        <option value="1.2.5">1.2.5</option>
+        <option value="1.5.2">1.5.2</option>
+        <option value="1.8.8">1.8.8</option>
+        <option value="R1.8.8">R1.8.8</option>
+        <option value="A1.8.8">A1.8.8</option>
+        <option value="1.9">1.9</option>
+      </select>
+    </div>
+
+    <button class="play-button" onclick="startGame()">Play</button>
+
+    <div class="footer">
+      <p>@glitch2023</p>
+    </div>
+  </div>
+
+  <script>
+    // Simulate launching the game with the selected version
+    function startGame() {
+      const version = document.getElementById('version').value;
+      // Construct the file name based on the selected version
+      const fileName = version + '.html';
+      
+      // Open the corresponding HTML file
+      window.location.href = fileName; // This will redirect to the selected version's HTML file
+
+      // Optionally, you can use alert to inform the user
+      alert(`Launching ${version}...`);
+    }
+  </script>
+
+</body>
+</html>
